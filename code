@@ -1,0 +1,467 @@
+DP.Shared = {
+   --[emotename] = {dictionary, animation, displayname, targetemotename, additionalanimationoptions}
+   -- you dont have to specify targetemoteanem, if you do dont it will just play the same animation on both.
+   -- targetemote is used for animations that have a corresponding animation to the other player.
+   ["handshake"] = {"mp_ped_interaction", "handshake_guy_a", "Tokalaşma", "handshake2", AnimationOptions =
+   {
+       EmoteMoving = true,
+       EmoteDuration = 3000,
+       SyncOffsetFront = 0.9
+   }},
+   ["handshake2"] = {"mp_ped_interaction", "handshake_guy_b", "Poignées de main 2", "handshake", AnimationOptions =
+   {
+       EmoteMoving = true,
+       EmoteDuration = 3000
+   }},
+   ["hug"] = {"mp_ped_interaction", "kisses_guy_a", "Embrasser", "hug2", AnimationOptions =
+   {
+       EmoteMoving = false,
+       EmoteDuration = 5000,
+       SyncOffsetFront = 1.05,
+   }},
+   ["hug2"] = {"mp_ped_interaction", "kisses_guy_b", "Embrasser 2", "hug", AnimationOptions =
+   {
+       EmoteMoving = false,
+       EmoteDuration = 5000,
+       SyncOffsetFront = 1.13
+   }},
+   ["bro"] = {"mp_ped_interaction", "hugs_guy_a", "Bro Poignée de main", "bro2", AnimationOptions =
+   {
+        SyncOffsetFront = 1.14
+   }},
+   ["bro2"] = {"mp_ped_interaction", "hugs_guy_b", "Bro Poignée de main 2", "bro", AnimationOptions =
+   {
+        SyncOffsetFront = 1.14
+   }},
+   ["give"] = {"mp_common", "givetake1_a", "Donner", "give2", AnimationOptions =
+   {
+       EmoteMoving = true,
+       EmoteDuration = 2000
+   }},
+   ["give2"] = {"mp_common", "givetake1_b", "Donner 2", "give", AnimationOptions =
+   {
+       EmoteMoving = true,
+       EmoteDuration = 2000
+   }},
+   ["baseball"] = {"anim@arena@celeb@flat@paired@no_props@", "baseball_a_player_a", "Mouvement de baseball", "baseballthrow"},
+   ["baseballthrow"] = {"anim@arena@celeb@flat@paired@no_props@", "baseball_a_player_b", "Poignée de main de baseball", "baseball"},
+   ["stickup"] = {"random@countryside_gang_fight", "biker_02_stickup_loop", "Soy", "stickupscared", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["stickupscared"] = {"missminuteman_1ig_2", "handsup_base", "Éplucher", "stickup", AnimationOptions =
+   {
+      EmoteMoving = true,
+      EmoteLoop = true,
+   }},
+   ["punch"] = {"melee@unarmed@streamed_variations", "plyr_takedown_rear_lefthook", "coup de poing", "punched"},
+   ["punched"] = {"melee@unarmed@streamed_variations", "victim_takedown_front_cross_r", "frappé", "punch"},
+   ["headbutt"] = {"melee@unarmed@streamed_variations", "plyr_takedown_front_headbutt", "coup de tête", "headbutted"},
+   ["headbutted"] = {"melee@unarmed@streamed_variations", "victim_takedown_front_headbutt", "entêté", "headbutt"},
+   ["slap2"] = {"melee@unarmed@streamed_variations", "plyr_takedown_front_backslap", "claque 2", "slapped2", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+       EmoteDuration = 2000,
+   }},
+   ["slap"] = {"melee@unarmed@streamed_variations", "plyr_takedown_front_slap", "claque", "slapped", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+       EmoteDuration = 2000,
+   }},
+   ["slapped"] = {"melee@unarmed@streamed_variations", "victim_takedown_front_slap", "claquée", "slap"},
+   ["slapped2"] = {"melee@unarmed@streamed_variations", "victim_takedown_front_backslap", "claquée", "slap2"},
+}
+
+DP.Dances = {
+   ["danskadın4"] = {"anim@amb@nightclub@dancers@solomun_entourage@", "mi_dance_facedj_17_v1_female^1", "Dance (féminine) 4", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danskadın2"] = {"anim@amb@nightclub@mini@dance@dance_solo@female@var_a@", "high_center", "Dance (féminine) 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danskadın3"] = {"anim@amb@nightclub@mini@dance@dance_solo@female@var_a@", "high_center_up", "Dance (féminine) 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danskadın"] = {"anim@amb@nightclub@dancers@crowddance_facedj@hi_intensity", "hi_dance_facedj_09_v2_female^1", "Dance (féminine)", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danskadın5"] = {"anim@amb@nightclub@dancers@crowddance_facedj@hi_intensity", "hi_dance_facedj_09_v2_female^3", "Dance (féminine) 5", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danskadın6"] = {"anim@amb@nightclub@mini@dance@dance_solo@female@var_a@", "high_center_up", "Dance (féminine) 6", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["dansyavaş2"] = {"anim@amb@nightclub@mini@dance@dance_solo@female@var_a@", "low_center", "Dance (lente) 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["dansyavaş3"] = {"anim@amb@nightclub@mini@dance@dance_solo@female@var_a@", "low_center_down", "Dance (lente) 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["dansyavaş4"] = {"anim@amb@nightclub@mini@dance@dance_solo@female@var_b@", "low_center", "Dance (lente) 4", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danserkek"] = {"anim@amb@nightclub@dancers@podium_dancers@", "hi_dance_facedj_17_v2_male^5", "Dance (masculine)", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danserkek2"] = {"anim@amb@nightclub@mini@dance@dance_solo@male@var_b@", "high_center_down", "Dance (masculine) 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danserkek3"] = {"anim@amb@nightclub@mini@dance@dance_solo@male@var_a@", "high_center", "Dance (masculine) 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danserkek4"] = {"anim@amb@nightclub@mini@dance@dance_solo@male@var_b@", "high_center_up", "Dance (masculine) 4", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["dansüst"] = {"anim@amb@nightclub@mini@dance@dance_solo@female@var_b@", "high_center", "Dance (supérieur)", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["dansüst2"] = {"anim@amb@nightclub@mini@dance@dance_solo@female@var_b@", "high_center_up", "Dance (supérieur) 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["dansutangaç"] = {"anim@amb@nightclub@mini@dance@dance_solo@male@var_a@", "low_center", "Dance (timide)", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["dansutangaç2"] = {"anim@amb@nightclub@mini@dance@dance_solo@female@var_b@", "low_center_down", "Dance (timide) 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["dansyavaş"] = {"anim@amb@nightclub@mini@dance@dance_solo@male@var_b@", "low_center", "Dance (timide)", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danszevzek9"] = {"rcmnigel1bnmt_1b", "dance_loop_tyler", "dance niaise 9", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["dans6"] = {"misschinese2_crystalmazemcs1_cs", "dance_loop_tao", "Dance 6", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["dans7"] = {"misschinese2_crystalmazemcs1_ig", "dance_loop_tao", "Dance 7", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["dans8"] = {"missfbi3_sniping", "dance_m_default", "Dans 8", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danszevzek"] = {"special_ped@mountain_dancer@monologue_3@monologue_3a", "mnt_dnc_buttwag", "Dance niaise", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danszevzek2"] = {"move_clown@p_m_zero_idles@", "fidget_short_dance", "dance niaise 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danszevzek3"] = {"move_clown@p_m_two_idles@", "fidget_short_dance", "Dance niaise 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danszevzek4"] = {"anim@amb@nightclub@lazlow@hi_podium@", "danceidle_hi_11_buttwiggle_b_laz", "Dance niaise 4", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danszevzek5"] = {"timetable@tracy@ig_5@idle_a", "idle_a", "Dance niaise 5", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danszevzek6"] = {"timetable@tracy@ig_8@idle_b", "idle_d", "Dance niaise 6", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["dans9"] = {"anim@amb@nightclub@mini@dance@dance_solo@female@var_a@", "med_center_up", "Dance 9", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["danszevzek8"] = {"anim@mp_player_intcelebrationfemale@the_woogie", "the_woogie", "Dance niaise 8", AnimationOptions =
+   {
+       EmoteLoop = true
+   }},
+   ["danszevzek7"] = {"anim@amb@casino@mini@dance@dance_solo@female@var_b@", "high_center", "Dance niaise 7", AnimationOptions =
+   {
+       EmoteLoop = true
+   }},
+   ["dans5"] = {"anim@amb@casino@mini@dance@dance_solo@female@var_a@", "med_center", "Dance 5", AnimationOptions =
+   {
+       EmoteLoop = true
+   }},
+   ["dansçubuk"] = {"anim@amb@nightclub@lazlow@hi_railing@", "ambclub_13_mi_hi_sexualgriding_laz", "Dance barre", AnimationOptions =
+   {
+       Prop = 'ba_prop_battle_glowstick_01',
+       PropBone = 28422,
+       PropPlacement = {0.0700,0.1400,0.0,-80.0,20.0},
+       SecondProp = 'ba_prop_battle_glowstick_01',
+       SecondPropBone = 60309,
+       SecondPropPlacement = {0.0700,0.0900,0.0,-120.0,-20.0},
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["dansçubuk2"] = {"anim@amb@nightclub@lazlow@hi_railing@", "ambclub_12_mi_hi_bootyshake_laz", "Dance barre 2", AnimationOptions =
+   {
+       Prop = 'ba_prop_battle_glowstick_01',
+       PropBone = 28422,
+       PropPlacement = {0.0700,0.1400,0.0,-80.0,20.0},
+       SecondProp = 'ba_prop_battle_glowstick_01',
+       SecondPropBone = 60309,
+       SecondPropPlacement = {0.0700,0.0900,0.0,-120.0,-20.0},
+       EmoteLoop = true,
+   }},
+   ["dansçubuk3"] = {"anim@amb@nightclub@lazlow@hi_railing@", "ambclub_09_mi_hi_bellydancer_laz", "Dance barre 3", AnimationOptions =
+   {
+       Prop = 'ba_prop_battle_glowstick_01',
+       PropBone = 28422,
+       PropPlacement = {0.0700,0.1400,0.0,-80.0,20.0},
+       SecondProp = 'ba_prop_battle_glowstick_01',
+       SecondPropBone = 60309,
+       SecondPropPlacement = {0.0700,0.0900,0.0,-120.0,-20.0},
+       EmoteLoop = true,
+   }},
+   ["dansat"] = {"anim@amb@nightclub@lazlow@hi_dancefloor@", "dancecrowd_li_15_handup_laz", "Dance cheval", AnimationOptions =
+   {
+       Prop = "ba_prop_battle_hobby_horse",
+       PropBone = 28422,
+       PropPlacement = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0},
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["dansat2"] = {"anim@amb@nightclub@lazlow@hi_dancefloor@", "crowddance_hi_11_handup_laz", "Dance cheval 2", AnimationOptions =
+   {
+       Prop = "ba_prop_battle_hobby_horse",
+       PropBone = 28422,
+       PropPlacement = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0},
+       EmoteLoop = true,
+   }},
+   ["dansat3"] = {"anim@amb@nightclub@lazlow@hi_dancefloor@", "dancecrowd_li_11_hu_shimmy_laz", "Dance chaval 3", AnimationOptions =
+   {
+       Prop = "ba_prop_battle_hobby_horse",
+       PropBone = 28422,
+       PropPlacement = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0},
+       EmoteLoop = true,
+   }},
+}
+
+DP.Emotes = {
+   ["iç"] = {"mp_player_inteat@pnq", "loop", "İçmek", AnimationOptions =
+   {
+       EmoteMoving = true,
+       EmoteDuration = 2500,
+   }},
+   ["kemer3"] = {"amb@code_human_police_investigate@base", "base", "ceinture 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["düşün"] = {"anim@amb@casino@hangout@ped_male@stand@02b@idles", "idle_a", "réfléchis", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["boks"] = {"anim@mp_player_intcelebrationfemale@shadow_boxing", "shadow_boxing", "Entraînement de boxe", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["boks2"] = {"anim@mp_player_intcelebrationmale@shadow_boxing", "shadow_boxing", "Entraînement de boxe 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["işe"] = {"misscarsteal2peeing", "peeing_loop", "Pipi", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["teslim"] = {"missminuteman_1ig_2", "handsup_base", "livré Ol", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["lafanlat"] = {"special_ped@jane@monologue_5@monologue_5c", "brotheradrianhasshown_2", "En parler", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["domal"] = {"missexile3", "ex03_train_roof_idle", "Cochon", AnimationOptions =
+   {   
+       EmoteMoving = true,
+       EmoteLoop = true,
+   }},
+   ["tavşan2"] = {"random@peyote@rabbit", "wakeup", "lapin 2", AnimationOptions =
+   {   EmoteMoving = true,
+       EmoteLoop = true,
+   }},
+   ["kudur"] = {"anim@mp_fm_event@intro", "beast_transform", "Se fâcher", AnimationOptions =
+   {
+       EmoteMoving = true,
+       EmoteDuration = 5000,
+   }},
+   ["yanyat"] = {"switch@trevor@scares_tramp", "trev_scares_tramp_idle_tramp", "Allongez-vous sur le côté", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["güneşlen"] = {"switch@trevor@annoys_sunbathers", "trev_annoys_sunbathers_loop_girl", "bronzer", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["güneşlen2"] = {"switch@trevor@annoys_sunbathers", "trev_annoys_sunbathers_loop_guy", "bronzer 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["güneşlen3"] = {"missfbi3_sniping", "prone_dave", "bronzer 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["emir"] = {"misscarsteal3pullover", "pull_over_right", "commander", AnimationOptions =
+   {
+       EmoteMoving = true,
+       EmoteDuration = 1300,
+   }},
+   ["boşta"] = {"anim@heists@heist_corona@team_idles@male_a", "idle", "Oisif", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["boşta2"] = {"amb@world_human_hang_out_street@male_b@idle_a", "base_idle", "Oisif 2"},
+   ["boşta3"] = {"friends@fra@ig_1", "base_idle", "Oisif 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["boşta4"] = {"mp_move@prostitute@m@french", "base_idle", "Oisif 4", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["boşta5"] = {"random@countrysiderobbery", "idle_a", "Oisif 5", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["boşta6"] = {"anim@heists@heist_corona@team_idles@female_a", "idle_a", "Oisif 6", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["boşta7"] = {"anim@heists@humane_labs@finale@strip_club", "ped_b_celebrate_loop", "Oisif 7", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["boşta8"] = {"anim@mp_celebration@idles@female", "celebration_idle_f_a", "Oisif 8", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["boşta9"] = {"anim@mp_corona_idles@female_b@idle_a", "idle_a", "Oisif 9", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["boşta10"] = {"anim@mp_corona_idles@male_c@idle_a", "idle_a", "Oisif 10", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["boşta11"] = {"anim@mp_corona_idles@male_d@idle_a", "idle_a", "Oisif 11", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["kaypak"] = {"amb@world_human_hang_out_street@female_hold_arm@idle_a", "idle_a", "Posture de glissement", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["sarhoşdur"] = {"random@drunk_driver_1", "drunk_driver_stand_loop_dd1", "Se saoulant", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["sarhoşdur2"] = {"random@drunk_driver_1", "drunk_driver_stand_loop_dd2", "Se saoulant 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["sarhoşdur3"] = {"missarmenian2", "standing_idle_loop_drunk", "Se saoulant 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["rock"] = {"anim@mp_player_intcelebrationfemale@air_guitar", "Rock and Roll", "Rock and Roll"},
+   ["kutlama"] = {"anim@mp_player_intcelebrationfemale@air_synth", "Joie de célébrer", "Kutlama Sevinci"},
+   ["tartış"] = {"misscarsteal4@actor", "actor_berating_loop", "débattre", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["tartış2"] = {"oddjobs@assassinate@vice@hooker", "argue_a", "débattre 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["elkoy"] = {"anim@amb@clubhouse@bar@drink@idle_a", "idle_a_bartender", "confisquer", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["öpücük"] = {"anim@mp_player_intcelebrationfemale@blow_kiss", "Envoyer un baiser", "Blow Kiss"},
+   ["öpücük2"] = {"anim@mp_player_intselfieblow_kiss", "exit", "Envoyer un baiser 2", AnimationOptions =
+   {
+       EmoteMoving = true,
+       EmoteDuration = 2000
+
+   }},
+   ["balerin"] = {"anim@mp_player_intcelebrationpaired@f_f_sarcastic", "sarcastic_left", "ballerine"},
+   ["bukadar"] = {"misscommon@response", "bring_it_on", "autant", AnimationOptions =
+   {
+       EmoteMoving = true,
+       EmoteDuration = 3000
+   }},
+   ["banagel"] = {"mini@triathlon", "want_some_of_this", "viens me voir", AnimationOptions =
+   {
+       EmoteMoving = true,
+       EmoteDuration = 2000
+   }},
+   ["kollar5"] = {"anim@amb@nightclub@peds@", "rcmme_amanda1_stand_loop_cop", "Attacher le bras 5", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["kemer2"] = {"amb@code_human_police_investigate@idle_a", "idle_b", "ceinture 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["kolbağla"] = {"amb@world_human_hang_out_street@female_arms_crossed@idle_a", "idle_a", "Attacher le bras", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["kolbağla2"] = {"amb@world_human_hang_out_street@male_c@idle_a", "idle_b", "Attacher le bras 2", AnimationOptions =
+   {
+       EmoteMoving = true,
+   }},
+   ["kolbağla3"] = {"anim@heists@heist_corona@single_team", "single_team_loop_boss", "Attacher le bras 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["kolbağla4"] = {"random@street_race", "_car_b_lookout", "Attacher le bras 4", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["kolbağla5"] = {"anim@amb@nightclub@peds@", "rcmme_amanda1_stand_loop_cop", "Attacher le bras 5", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["kolbağla6"] = {"anim@amb@nightclub@peds@", "rcmme_amanda1_stand_loop_cop", "Attacher le bras 6", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["kolbağla7"] = {"random@shop_gunstore", "_idle", "Attacher le bras 7", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
