@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+    ESX = nil
+local m3 = {
+    washed = false,
+    haveCookedMeat = false,
+    haveDrink = false,
+    havePackage = false,
+    blip = nil,
+}
+
+TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+Citizen.CreateThread(function()
+	while ESX == nil do
+		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+		Citizen.Wait(0)
+	end
+
+	ESX.TriggerServerCallback('m3:taco:server:getCurrentGang', function(gang)
+        m3.currentgang = gang
+		setColor()
+    end)
+
+    tacoblip = AddBlipForCoord(cfg.coords.delivery.x, cfg.coords.delivery.y, cfg.coords.delivery.z)
+	SetBlipSprite(tacoblip, 464)
+	SetBlipColour(tacoblip, 47)
+	SetBlipScale(tacoblip, 0.7)
+	SetBlipAsShortRange(tacoblip, true)
+	BeginTextCommandSetBlipName("STRING")
+	AddTextComponentString("the ATM Taco")
+	EndTextCommandSetBlipName(tacoblip)
+end)
+
+function firstToUpper(str)
+    return (str:gsub("^%l", string.upper))
+end
+local colors = {
+	['grove'] = {
+			color1 = 0, color2 = 128, color3 = 0
+	},
+	['ballas'] = {
+			color1 =128, color2 = 0, color3 = 128
+	},
+	['crips'] = {
+			color1 = 0, color2 = 0, color3 = 255
+	},
+	['aztec'] = {
+			color1 = 173, color2 = 216, color3 = 230
+	},
+	['vagos'] = {
+			color1 = 255, color2 = 255, color3 = 0
+	},
+    ['black'] = {
+            color1 = 0, color2 = 0, color3 = 0
+    },
+	['bloods'] = {
+			color1 =255, color2 = 0, color3 = 0
+	},
+    ['ruins'] = {
+        color1 =255, color2 = 0, color3 = 0
+    },
+}
+function setColor()
+	color1 = colors[m3.currentgang].color1
+	color2 = colors[m3.currentgang].color2
+	color3 = colors[m3.currentgang].color3
+end
+
+Citizen.CreateThread(function()
+    while true do
+        idle = 1000
+        local ped = PlayerPedId()
+        local pcoords = GetEntityCoords(ped)
+
+        local deliveryDistance = #(pcoords - cfg.coords.delivery)
+        if m3.currentgang ~= nil then
+            if deliveryDistance < 30.0 then
+                idle = 5
+                drawTxt2(0.88, 0.89, 0.45, 'Taco Owner: '..firstToUpper(m3.currentgang), color1, color2, color3, 255)
+            end
+        end
+
+        if not m3.washed and not m3.haveMeat and not m3.haveCookedMeat and not m3.haveDrink and not m3.havePackage then
+            local washDistance = #(pcoords - cfg.coords.wash)
+            if washDistance <= 1.8 then
+                idle = 5
+                DrawMarker(27, cfg.coords.wash.x, cfg.coords.wash.y, cfg.coords.wash.z, 0, 0, 0, 0, 0, 0, 0.4, 0.4, 0.2, 255, 255, 255, 55, 0, 0, 0, 0)
+                if washDistance <= 1.2 then
+                    drawTxt(0.90, 1.44, 1.0, 1.0, 0.35, "[E] - laver les mains", 255, 255, 255, 255)
+                    if IsControlJustReleased(1, 38) then
+                        TriggerEvent("mythic_progbar:client:progress", {
+                            name = "unique_action_name",
+                            duration = 10000,
+                            label = "laver les mains..",
+                            useWhileDead = false,
+                            canCancel = false,
+                            controlDisables = {
+                                disableMovement = true,
+                                disableCarMovement = true,
+                                disableMouse = false,
+                                disableCombat = true,
+                            },
+                            animation = {
+                                animDict = "amb@world_human_bum_standing@twitchy@idle_a",
+                                anim = "idle_a",
+                            },
+                        }, function(status)
+                            if not status then
+                                ClearPedTasks(ped)
+                                m3.washed = true
+                                exports['mythic_notify']:SendAlert('inform', 'lavé les mains.')
+                                TriggerServerEvent('GSR:Remove')
+                            end
+                        end)
+                    end
+                end
+            end
+        end
+        
+        if m3.washed then
+            local cookDistance = #(pcoords - cfg.coords.cook)
+            if cookDistance <= 1.8 then
+                idle = 5
+                DrawMarker(27, cfg.coords.cook.x, cfg.coords.cook.y, cfg.coords.cook.z, 0, 0, 0, 0, 0, 0, 0.4, 0.4, 0.2, 255, 255, 255, 55, 0, 0, 0, 0)
+                if cookDistance <= 1.2 then
+                    drawTxt(0.90, 1.44, 1.0, 1.0, 0.35, "[E] - cuisinez le repas", 255, 255, 255, 255)
+                    if IsControlJustReleased(1, 38) then
+                        ESX.TriggerServerCallback('m3:taco:server:checkItem', function(amount)
+                            if amount > 0 then
+                                TaskStartScenarioInPlace(ped, "PROP_HUMAN_BBQ", 0, false)
+                                TriggerEvent("mythic_progbar:client:progress", {
+                                    name = "unique_action_name",
+                                    duration = 30000,
+                                    label = "vous avez preparé le repas..",
+                                    useWhileDead = false,
+                                    canCancel = false,
+                                    controlDisables = {
+                                        disableMovement = true,
+                                        disableCarMovement = true,
+                                        disableMouse = false,
+                                        disableCombat = true,
+                                    },
+                                }, function(status)
+                                    if not status then
+                                        ClearPedTasks(ped)
+                                        m3.washed = false
+                                        m3.haveCookedMeat = true
+                                        TriggerServerEvent('m3:taco:server:addTaco')
+                                        exports['mythic_notify']:SendAlert('inform', 'préparé le repas.')
+                                    end
+                                end)
+                            else
+                                exports['mythic_notify']:SendAlert('error', 'vous navez pas de tacos.')
+                            end
+                        end, 'tacomeat')
+                    end
+                end
+            end
+        end
+
+        if m3.haveCookedMeat then
+            local drinkDistance = #(pcoords - cfg.coords.drink)
+            if drinkDistance <= 1.8 then
+                idle = 5
+                DrawMarker(27, cfg.coords.drink.x, cfg.coords.drink.y, cfg.coords.drink.z, 0, 0, 0, 0, 0, 0, 0.4, 0.4, 0.2, 255, 255, 255, 55, 0, 0, 0, 0)
+                if drinkDistance <= 1.2 then
+                    drawTxt(0.90, 1.44, 1.0, 1.0, 0.35, "[E] - donnez la boisson", 255, 255, 255, 255)
+                    if IsControlJustReleased(1, 38) then
+                        TaskStartScenarioInPlace(ped, "PROP_HUMAN_BBQ", 0, false)
+                        TriggerEvent("mythic_progbar:client:progress", {
+                            name = "unique_action_name",
+                            duration = 1000,
+                            label = "Vous achetez des boissons..",
+                            useWhileDead = false,
+                            canCancel = false,
+                            controlDisables = {
+                                disableMovement = true,
+                                disableCarMovement = true,
+                                disableMouse = false,
+                                disableCombat = true,
+                            },
+                        }, function(status)
+                            if not status then
+                                ClearPedTasks(ped)
+                                m3.haveCookedMeat = false
+                                m3.haveDrink = true
+                                TriggerServerEvent('m3:taco:server:addDrink')
+                                exports['mythic_notify']:SendAlert('inform', 'donné boisson.')
+                            end
+                        end)
+                    end
+                end
+            end
+        end
+
+        if m3.haveDrink then
+            local packageDistance = #(pcoords - cfg.coords.package)
+            if packageDistance <= 1.8 then
+                idle = 5
+                DrawMarker(27, cfg.coords.package.x, cfg.coords.package.y, cfg.coords.package.z, 0, 0, 0, 0, 0, 0, 0.4, 0.4, 0.2, 255, 255, 255, 55, 0, 0, 0, 0)
+                if packageDistance <= 1.2 then
+                    drawTxt(0.90, 1.44, 1.0, 1.0, 0.35, "[E] - emballage du tacos", 255, 255, 255, 255)
+                    if IsControlJustReleased(1, 38) then
+                        ESX.TriggerServerCallback('m3:taco:server:checkItem', function(amount)
+                            if amount > 0 then
+                                ESX.TriggerServerCallback('m3:taco:server:checkItem', function(amount)
+                                    if amount > 0 then
+                                        TriggerEvent("mythic_progbar:client:progress", {
+                                            name = "unique_action_name",
+                                            duration = 30000,
+                                            label = "emballé du taco..",
+                                            useWhileDead = false,
+                                            canCancel = false,
+                                            controlDisables = {
+                                                disableMovement = true,
+                                                disableCarMovement = true,
+                                                disableMouse = false,
+                                                disableCombat = true,
+                                            },
+                                            animation = {
+                                                animDict = "mini@repair",
+                                                anim = "fixing_a_player",
+                                                flags = 49
+                                            },
+                                        }, function(status)
+                                            if not status then
+                                                ClearPedTasks(ped)
+                                                m3.haveDrink = false
+                                                TriggerServerEvent('m3:taco:server:addTacoPackage')
+                                                exports['mythic_notify']:SendAlert('inform', 'pret lemballage du tacos.')
+                                            end
+                                        end)
+                                    else
+                                        exports['mythic_notify']:SendAlert('error', 'vous navez pas de tacos.')
+                                    end
+                                end, 'taco')
+                            else
+                                exports['mythic_notify']:SendAlert('error', 'vous navez pas de boisson.')
+                            end
+                        end, 'cola')
+                    end
+                end
+            end
+        end
+        
+        if deliveryDistance <= 1.8 then
+            idle = 5
+            DrawMarker(27, cfg.coords.delivery.x, cfg.coords.delivery.y, cfg.coords.delivery.z, 0, 0, 0, 0, 0, 0, 0.4, 0.4, 0.2, 255, 255, 255, 55, 0, 0, 0, 0)
+            if deliveryDistance <= 1.2 then
+                drawTxt(0.90, 1.44, 1.0, 1.0, 0.35, "[E] - Siparis al", 255, 255, 255, 255)
+                if IsControlJustReleased(1, 38) then
+                    TriggerEvent("mythic_progbar:client:progress", {
+                        name = "unique_action_name",
+                        duration = 1,
+                        label = "Vous prenez des commandes..",
+                        useWhileDead = false,
+                        canCancel = false,
+                        controlDisables = {
+                            disableMovement = true,
+                            disableCarMovement = true,
+                            disableMouse = false,
+                            disableCombat = true,
+                        },
+                        animation = {
+                            animDict = "missheistdockssetup1clipboard@base",
+                            anim = "base",
+                        },
+                        prop = {
+                            model = "prop_notepad_01",
+                            bone = 18905,
+                            coords = { x = 0.10, y = 0.0, z = 0.05 },
+                            rotation = { x = 10.0, y = 0.0, z = 00.0 },
+                        }
+                    }, function(status)
+                        if not status then
+                            ClearPedTasks(ped)
+                            local random = math.random(1, #cfg.coords.deliverypoints)
+                            exports['mythic_notify']:SendAlert('inform', 'vous avez reçu la commande. Marqué sur le GPS. Tu as 5 minutes')
+                            SetNewWaypoint(cfg.coords.deliverypoints[random].x, cfg.coords.deliverypoints[random].y)
+                            addBlip(random)
+                            local deliverystarted = true
+                            local ms = 0
+                            repeat
+                                local pcoords2 = GetEntityCoords(ped)
+                                Citizen.Wait(5)
+                                if ms >= 60000 then
+                                    exports['mythic_notify']:SendAlert('error', 'vous navez pas fini la commande, elle va annulé..')
+                                    delBlip()
+                                    deliverystarted = false
+                                else
+                                    ms = ms + 5
+                                end
+                                local sellingDistance = #(pcoords2 - cfg.coords.deliverypoints[random])
+                                if not IsPedInAnyVehicle(ped, false) and sellingDistance < 3.0 then
+                                    drawTxt(0.90, 1.44, 1.0, 1.0, 0.35, "[E] - Make a sale", 255, 255, 255, 255)
+                                    if IsControlJustReleased(0, 38) then
+                                        TriggerEvent("mythic_progbar:client:progress", {
+                                            name = "siparis",
+                                            duration = 10000,
+                                            label = "la commande a été livré...",
+                                            useWhileDead = false,
+                                            canCancel = false,
+                                            controlDisables = {
+                                                disableMovement = false,
+                                                disableCarMovement = true,
+                                                disableMouse = false,
+                                                disableCombat = true,
+                                            },
+                                            animation = {
+                                                animDict = "timetable@jimmy@doorknock@",
+                                                anim = "knockdoor_idle",
+                                            },
+                                        }, function(status)
+                                            if not status then
+                                                ClearPedTasks(ped)
+                                                delBlip()
+                                                TriggerServerEvent('m3:taco:server:sell')
+                                                deliverystarted = false
+                                            end
+                                        end)
+                                    end
+                                end
+                            until (not deliverystarted)
+                        end
+                    end)
+                end
+            end
+        end
+        Citizen.Wait(idle)
+    end
+end)
+
+RegisterNetEvent('m3:taco:client:setCurrentGang')
+AddEventHandler('m3:taco:client:setCurrentGang', function(gang)
+    m3.currentgang = gang
+    setColor()
+end)
+
+function delBlip()
+    if DoesBlipExist(blip) then
+        RemoveBlip(blip)
+    end
+end 
+
+function addBlip(id)
+    if DoesBlipExist(blip) then
+        RemoveBlip(blip)
+    end
+
+    blip =  AddBlipForCoord(cfg.coords.deliverypoints[id]["x"], cfg.coords.deliverypoints[id]["y"], cfg.coords.deliverypoints[id]["z"])
+
+    SetBlipSprite(blip, 40)
+    SetBlipScale(blip, 1.0)
+    SetBlipColour(blip, 26)
+    SetBlipAsShortRange(blip, false)
+    BeginTextCommandSetBlipName("STRING")
+    AddTextComponentString("Commande de tacos")
+    EndTextCommandSetBlipName(blip)
+end
+
+function drawTxt(x, y, width, height, scale, text, r, g, b, a, outline)
+    SetTextFont(0)
+    SetTextProportional(0)
+    SetTextScale(scale, scale)
+    SetTextColour(r, g, b, a)
+    SetTextDropShadow(0, 0, 0, 0,255)
+    SetTextEdge(1, 0, 0, 0, 255)
+    SetTextDropShadow()
+    if(outline)then
+        SetTextOutline()
+    end
+    SetTextEntry("STRING")
+    AddTextComponentString(text)
+    DrawText(x - width/2, y - height/2 + 0.005)
+end
+
+function drawTxt2(x, y, scale, text, red, green, blue, alpha)
+	SetTextFont(4)
+	SetTextProportional(1)
+	SetTextScale(scale, scale)
+	SetTextColour(red, green, blue, alpha)
+	SetTextDropShadow(0, 0, 0, 0, 255)
+	SetTextEdge(1, 0, 0, 0, 255)
+	SetTextDropShadow()
+	SetTextOutline()
+	SetTextEntry("STRING")
+	AddTextComponentString(text)
+    DrawText(x, y)
+end
+</html>
