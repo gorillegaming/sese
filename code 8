@@ -1,0 +1,137 @@
+if itemName == 'viagra' then
+    local lib, anim = 'anim@mp_player_intcelebrationmale@face_palm', 'face_palm'
+    local playerPed = PlayerPedId()
+    exports['mythic_notify']:SendAlert('error', 'Vous prenez du Viagra')
+    ESX.Streaming.RequestAnimDict(lib, function()
+        if not IsPedInAnyVehicle(playerPed, false) then
+            exports['mythic_progbar']:Progress({
+                name = "armor",
+                duration = 6000,
+                label = 'Vous utilisez viagra...',
+                useWhileDead = false,
+                canCancel = false,
+                controlDisables = {
+                    disableMovement = false,
+                    disableCarMovement = true,
+                    disableMouse = false,
+                    disableCombat = true,
+                },
+                animation = {
+                    animDict = "clothingshirt",
+                    anim = "try_shirt_neutral_d",
+                    flags = 49,
+                },
+            }, function(cancelled)
+                if not cancelled then
+                    viagraeffects()
+                end
+            end)
+        else
+            exports['mythic_progbar']:Progress({
+                name = "armor",
+                duration = 6000,
+                label = 'Vous utilisez viagra...',
+                useWhileDead = false,
+                canCancel = false,
+                controlDisables = {
+                    disableMovement = false,
+                    disableCarMovement = false,
+                    disableMouse = false,
+                    disableCombat = true,
+                },
+            }, function(cancelled)
+                if not cancelled then
+                    viagraeffects()
+                end
+            end)
+        end
+
+    end)
+end
+end)
+
+viagraeffects = function()
+local player = GetPlayerPed(-1)
+
+SetRunSprintMultiplierForPlayer(PlayerId(), runspeed)
+StatSetInt(GetHashKey('MP0_STAMINA'), 100, 1)
+fastrun = true
+TriggerEvent('mythic_notify:client:SendAlert', { type = 'inform', text = 'Grâce au Viagra, vous courrez vite pendant 3 minutes!'})
+Citizen.Wait(180000)
+fastrun = false
+TriggerEvent('mythic_notify:client:SendAlert', { type = 'error', text = 'Les effets que vous avez obtenus grâce au Viagra sont terminés!'})
+StatSetInt(GetHashKey('MP0_STAMINA'), 0, 1)
+SetPedMoveRateOverride(player, 1.0)
+SetRunSprintMultiplierForPlayer(PlayerId(),1.0)		
+end
+
+RegisterNetEvent('mb_jointeffect:useItem')
+AddEventHandler('mb_jointeffect:useItem', function(itemName)
+ESX.UI.Menu.CloseAll()
+
+if itemName == 'joint' then
+    local lib, anim = 'anim@mp_player_intcelebrationmale@face_palm', 'face_palm'
+    local playerPed = PlayerPedId()
+    exports['mythic_notify']:SendAlert('error', 'vous utilisez joint')
+    ESX.Streaming.RequestAnimDict(lib, function()
+        if not IsPedInAnyVehicle(playerPed, false) then
+            exports['mythic_progbar']:Progress({
+                name = "armor",
+                duration = 6000,
+                label = 'vous utilisez joint...',
+                useWhileDead = false,
+                canCancel = false,
+                controlDisables = {
+                    disableMovement = false,
+                    disableCarMovement = true,
+                    disableMouse = false,
+                    disableCombat = true,
+                },
+                animation = {
+                    animDict = "clothingshirt",
+                    anim = "try_shirt_neutral_d",
+                    flags = 49,
+                },
+            }, function(cancelled)
+                if not cancelled then
+                    jointeffects()
+                end
+            end)
+        else
+            exports['mythic_progbar']:Progress({
+                name = "armor",
+                duration = 6000,
+                label = 'vous utilisez joint...',
+                useWhileDead = false,
+                canCancel = false,
+                controlDisables = {
+                    disableMovement = false,
+                    disableCarMovement = false,
+                    disableMouse = false,
+                    disableCombat = true,
+                },
+            }, function(cancelled)
+                if not cancelled then
+                    jointeffects()
+                end
+            end)
+        end
+
+    end)
+end
+end)
+
+jointeffects = function()
+local player = GetPlayerPed(-1)
+
+SetRunSprintMultiplierForPlayer(PlayerId(), runspeed)
+StatSetInt(GetHashKey('MP0_STAMINA'), 100, 1)
+fastrun = true
+TriggerEvent('mythic_notify:client:SendAlert', { type = 'inform', text = 'Grâce à joint, vous courrez vite pendant 3 minutes!'})
+Citizen.Wait(180000)
+fastrun = false
+TriggerEvent('mythic_notify:client:SendAlert', { type = 'error', text = 'Les effets que vous avez obtenus grâce à joint sont terminés!'})
+StatSetInt(GetHashKey('MP0_STAMINA'), 0, 1)
+SetPedMoveRateOverride(player, 1.0)
+SetRunSprintMultiplierForPlayer(PlayerId(),1.0)		
+end
