@@ -1,0 +1,73 @@
+["packagedweed"] = "paquet de weed",
+    ["packagedmeth"] = "paquet de meth",
+    ["packagedcoca"] = "Paquet de cocaine",
+
+}
+
+
+Config.methLab = {
+
+    entry = { -- DON'T TOUCH!
+        coord = vector3(809.89, -490.92, 30.63), 
+        intcoord = vector3(997.48, -3200.8, -36.4), 
+        entryheading = 194.3,
+        intheading = 250.19,
+        text = "[E] Utilise la carte de laboratoire", 
+        requiredItem = true,
+        item = "carte de laboratoire", 
+    },
+    exit = { -- DON'T TOUCH!
+        intcoord = vector3(997.16, -3200.64, -36.4), 
+        coord = vector3(809.89, -490.92, 30.63), 
+        text = "[E] sortie",
+        heading = 90.0, 
+    },
+    cookZone = { -- DON'T TOUCH!
+        coord = vector3(1005.80,-3200.40,-38.52),
+        text = "[E] cuisiner",
+        startingCoord = vector3(1007.76, -3200.64, -39.0),
+        startingText = "[E] Allumez le four",
+        methMinCount = 10,
+        methMaksCount = 20,
+        takeMethText = "[E] Décroche "
+    },
+    packageZone = { -- DON'T TOUCH!
+        coord = vector3(1011.80,-3194.90,-38.99),
+        text = "[E] Paquet de Meth",
+        takeMethText = "[E] Décroche",
+    }
+
+}
+
+Config.Coca = {
+
+    entry = { -- DON'T TOUCH!
+        coord = vector3(1004.6, -1572.88, 30.8), 
+        intcoord = vector3(1088.56, -3188.12, -39.0), 
+        intheading = 183.55,
+        text = "[E] Entrer", 
+    },
+    exit = { -- DON'T TOUCH!
+        intcoord = vector3(1088.72, -3187.8, -39.0), 
+        coord = vector3(1004.6, -1572.88, 30.8), 
+        text = "[E] Sortie",
+        heading = 90.0, 
+    }, 
+    gatheringZone = {
+        coords = {
+            [1] = {coord = vector3(1093.0, -3194.84, -39.0), heading = 183.39, rotx = -1.91, roty = -0.32, rotz = -0.60},
+            [2] = {coord = vector3(1095.4, -3194.92, -39.0), heading = 183.39, rotx = -1.91, roty = -0.32, rotz = -0.60},
+            [3] = {coord = vector3(1090.32, -3194.88, -39.0), heading = 183.39, rotx = -2.0, roty = -0.32, rotz = -0.60},
+        },
+        text = "[E] Cueillette de cocaine",
+        takeCoca = "[E] Décroche",
+        count = 1, 
+    },
+    packageZone = {
+        coord = vector3(1101.245,-3198.82,-39.0),
+        text = "[E] Paquet de cocaine",
+        takePackCoc = "[E] Décroche",
+        heading = 180.34,
+        count = 1, 
+    }
+}
