@@ -1,0 +1,363 @@
+["yotur16"] = {"anim@heists@narcotics@funding@gang_chat", "gang_chatting_combined", "Assis sur le plancher 16 ~p~ NOUVEAU", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["teslimol2"] = {"anim@heists@ornate_bank@hostages@cashier_b@", "flinch_loop_underfire", "Reddition 2 ~p~ NOUVEAU", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["yotur17"] = {"anim@heists@prison_heistig_5_p1_rashkovsky_idle", "idle_180", "Reddition 2 ~p~ NOUVEAU", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["parmak3"] = {"anim@mp_player_intcelebrationfemale@finger", "finger", "Finger Pull ~p~ NOUVEAU", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["yotur18"] = {"anim@mp_rollarcoaster", "hands_up_idle_a_player_one", "Asseyez-vous sur le plancher 18 ~p~ NOUVEAU", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = false,
+   }}, 
+   ["stut2"] = {"combat@aim_variations@1h@gang", "aim_variation_b", "Garder les armes 2 ~p~ NOUVEAU", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["ystut"] = {"combat@damage@injured_pistol@to_writhe", "variation_b", "Garder un pistolet blessé ~p~ NOUVEAU", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["yaralı2"] = {"combat@damage@writhe", "writhe_loop", "Couché blessé 2 ~p~ NOUVEAU", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = false,
+   }}, 
+   ["kasaaç"] = {"mini@safe_cracking", "dial_turn_anti_slow", "Ouvrir le cas ~p~ NOUVEAU", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = false,
+   }},
+   ["yaslan6"] = {"mini@strip_club@backroom@", "leadin_loop_idle_c_stripper_c", "Lean 6 ~p~ NOUVEAU", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = false,
+   }},
+   ["memegöster"] = {"mini@strip_club@backroom@", "stripper_b_backroom_idle_b", "Nozzle Show ~p~ NOUVEAU", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }}, 
+   ["bit"] = {"mini@strip_club@backroom@", "stripper_c_leadin_backroom_idle_a", "Leg Break ~p~ NOUVEAU", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = false,
+   }},
+   ["memesalla"] = {"mini@strip_club@idles@stripper", "stripper_idle_05", "Breast Shake ~p~ NOUVEAU", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},    
+   ["öl"] = {"missarmenian2", "drunk_loop", "Gisant mort", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["öl2"] = {"missarmenian2", "corpse_search_exit_ped", "Gisant mort 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["öl3"] = {"anim@gangops@morgue@table@", "body_search", "Gisant mort 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["öl4"] = {"mini@cpr@char_b@cpr_def", "cpr_pumpchest_idle", "Gisant mort 4", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["öl5"] = {"random@mugging4", "flee_backward_loop_shopkeeper", "Gisant mort 5", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["incele4"] = {"creatures@rottweiler@tricks@", "petting_franklin", "Étudier 4", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["sürün"] = {"move_injured_ground", "front_loop", "Ramper", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["takla"] = {"anim@arena@celeb@flat@solo@no_props@", "cap_a_player_a", "Saut périlleux"},
+   ["takla2"] = {"anim@arena@celeb@flat@solo@no_props@", "flip_a_player_a", "Saut périlleux 2"},
+   ["kay"] = {"anim@arena@celeb@flat@solo@no_props@", "slide_a_player_a", "Crème"},
+   ["kay2"] = {"anim@arena@celeb@flat@solo@no_props@", "slide_b_player_a", "Crème 2"},
+   ["kay3"] = {"anim@arena@celeb@flat@solo@no_props@", "slide_c_player_a", "Crème 3"},
+   ["bvuruş"] = {"anim@arena@celeb@flat@solo@no_props@", "slugger_a_player_a", "Coup de pied de baseball"},
+   ["parmak4"] = {"anim@arena@celeb@podium@no_prop@", "flip_off_a_1st", "Tirer les doigts 4", AnimationOptions =
+   {
+       EmoteMoving = true,
+   }},
+   ["parmak5"] = {"anim@arena@celeb@podium@no_prop@", "flip_off_c_1st", "Tirer les doigts 5", AnimationOptions =
+   {
+       EmoteMoving = true,
+   }},
+   ["selamla"] = {"anim@arena@celeb@podium@no_prop@", "regal_c_1st", "Saluer", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["selamla2"] = {"anim@arena@celeb@podium@no_prop@", "regal_a_1st", "Saluer 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["akitle"] = {"anim@mp_player_intmenu@key_fob@", "fob_click", "Verrouillage de voiture", AnimationOptions =
+   {
+       EmoteLoop = false,
+       EmoteMoving = true,
+       EmoteDuration = 1000,
+   }},
+   ["bvuruş2"] = {"rcmnigel1d", "swing_a_mark", "Coup de pied de baseball 2"},
+   ["ye"] = {"mp_player_inteat@burger", "mp_player_int_eat_burger", "Manger", AnimationOptions =
+   {
+       EmoteMoving = true,
+       EmoteDuration = 3000,
+   }},
+   ["stut3"] = {"move_m@intimidation@cop@unarmed", "idle", "Tenir une arme à feu 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["bekle9"] = {"random@shop_tattoo", "_idle_a", "Arrêt en veille 9", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["bekle10"] = {"missbigscore2aig_3", "wait_for_van_c", "Arrêt en veille 10", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["bekle11"] = {"rcmjosh1", "idle", "Arrêt en veille 11", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["bekle12"] = {"rcmnigel1a", "base", "Arrêt en veille 12", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["kucakdansı2"] = {"mini@strip_club@private_dance@idle", "priv_dance_idle", "Danse 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["kucakdansı3"] = {"mini@strip_club@private_dance@part2", "priv_dance_p2", "Danse 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["kucakdansı4"] = {"mini@strip_club@private_dance@part3", "priv_dance_p3", "Danse 4", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["twerk"] = {"switch@trevor@mocks_lapdance", "001443_01_trvs_28_idle_stripper", "Faire du Twerk", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["tokat"] = {"melee@unarmed@streamed_variations", "plyr_takedown_front_slap", "Gifles 60", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+       EmoteDuration = 2000,
+   }},
+   ["kafaat"] = {"melee@unarmed@streamed_variations", "plyr_takedown_front_headbutt", "Tête de lancer"},
+   ["yılan"] = {"anim@mp_player_intupperfind_the_fish", "idle_a", "Faire des serpents", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["barış"] = {"mp_player_int_upperpeace_sign", "mp_player_int_peace_sign", "Faire la paix", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["barış2"] = {"anim@mp_player_intupperpeace", "idle_a", "Faire la paix 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["doktor2"] = {"mini@cpr@char_a@cpr_str", "cpr_pumpchest", "Médecin 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["doktor3"] = {"mini@cpr@char_a@cpr_str", "cpr_pumpchest", "Médecin 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["uçak2"] = {"missfbi1", "ledge_loop", "Mouvement des aéronefs 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["uçak3"] = {"missfbi1", "ledge_loop", "Mouvement des aéronefs 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["gözetle"] = {"random@paparazzi@peek", "left_peek_a", "Piaulement", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["öksür"] = {"timetable@gardener@smoking_joint", "idle_cough", "Toux", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["ısın2"] = {"mini@triathlon", "idle_e", "Chaleur 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["ısın3"] = {"mini@triathlon", "idle_f", "Chaleur 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["ısın4"] = {"mini@triathlon", "idle_d", "Chaleur 4", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["ısın5"] = {"rcmfanatic1maryann_stretchidle_b", "idle_e", "Chaleur 5", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["sevin"] = {"rcmfanatic1celebrate", "celebrate", "Joie de la célébration", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["boks3"] = {"rcmextreme2", "loop_punching", "Joie de la célébration 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["kahraman"] = {"rcmbarry", "base", "Posture du héros", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["kahraman2"] = {"rcmbarry", "base", "Posture du héros 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["büyü"] = {"rcmbarry", "mind_control_b_loop", "Ensorceler", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["büyü2"] = {"rcmbarry", "bar_1_attack_idle_aln", "Ensorceler 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["palyaço"] = {"rcm_barry2", "clown_idle_0", "Clown ", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["palyaço2"] = {"rcm_barry2", "clown_idle_1", "Clown 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["palyaço3"] = {"rcm_barry2", "clown_idle_2", "Clown 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["palyaço4"] = {"rcm_barry2", "clown_idle_3", "Clown 4", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["palyaço5"] = {"rcm_barry2", "clown_idle_6", "Clown 5", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["podyum"] = {"mp_clothing@female@trousers", "try_trousers_neutral_a", "Podium Posture", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["podyum2"] = {"mp_clothing@female@shirt", "try_shirt_positive_a", "Podium Posture 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["podyum3"] = {"mp_clothing@female@shoes", "try_shoes_positive_a", "Podium Posture 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["gduruş"] = {"mp_missheist_countrybank@nervous", "nervous_idle", "Posture nerveuse", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["gduruş2"] = {"amb@world_human_bum_standing@twitchy@idle_a", "idle_c", "Posture nerveuse 2", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["gduruş3"] = {"rcmme_tracey1", "nervous_loop", "Posture nerveuse 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["elkaşı"] = {"mp_arresting", "a_uncuff", "Scratch à la main", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["dua"] = {"timetable@amanda@ig_4", "ig_4_base", "Prier", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["dj"] = {"anim@amb@nightclub@djs@dixon@", "dixn_dance_cntr_open_dix", "DJ", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["stut4"] = {"random@atmrobberygen", "b_atm_mugging", "Tenir une arme à feu 4", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["telsiz"] = {"random@arrests", "generic_radio_chatter", "Regarder la radio", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["çek"] = {"random@mugging4", "struggle_loop_b_thief", "Tirer", AnimationOptions =
+   {
+       EmoteMoving = true,
+   }},
+   ["kuş"] = {"random@peyote@bird", "wakeup", "Raid d’oiseaux"},
+   ["tavuk"] = {"random@peyote@chicken", "wakeup", "Raid d’oiseaux", AnimationOptions =
+   {
+       EmoteLoop = true,
+       EmoteMoving = true,
+   }},
+   ["köpek"] = {"random@peyote@dog", "wakeup", "Imitation de chien"},
+   ["tavşan3"] = {"random@peyote@rabbit", "wakeup", "Lièvre 3"},
+   ["domal3"] = {"missexile3", "ex03_train_roof_idle", "Coupole 3", AnimationOptions =
+   {
+       EmoteLoop = true,
+   }},
+   ["lafanlat2"] = {"special_ped@jane@monologue_5@monologue_5c", "brotheradrianhasshown_2", "S’exprimer 2", AnimationOptions =
+   {
+      EmoteMoving = true,
+      EmoteDuration = 3000,
+   }},
+   ["üstdüzelt"] = {"missmic4", "michael_tux_fidget", "Fixation du haut", AnimationOptions =
+   {
+      EmoteMoving = true,
+      EmoteDuration = 4000,
+   }},
+   ["ehavaya"] = {"missminuteman_1ig_2", "handsup_base", "Haut les mains", AnimationOptions =
+   {
+      EmoteMoving = true,
+      EmoteLoop = true,
+   }},
+   ["çiş"] = {"misscarsteal2peeing", "peeing_loop", "Faire pipi", AnimationOptions =
